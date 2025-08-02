@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Readify - PDF to Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>📄 Readify</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <input type="file" name="pdf" accept="application/pdf" required>
+            <button type="submit">Convert to Text</button>
+        </form>
+
+        {% if extracted_text %}
+        <div class="output">
+            <h2>📃 Extracted Text:</h2>
+            <textarea rows="20" readonly>{{ extracted_text }}</textarea>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
